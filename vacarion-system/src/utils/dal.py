@@ -131,7 +131,7 @@ if __name__ == '__main__':
     with DAL() as dal:
         # דוגמאות ל-get_table
         print("\n=== get_table examples ===")
-        countries = dal.get_table("SELECT * FROM countries")
+        countries = dal.get_table("SELECT * FROM countries where country_id >= %s",(5,))
         # users = dal.get_table("SELECT * FROM users WHERE age > %s", (25,))
 
         for country in countries:
