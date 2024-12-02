@@ -131,20 +131,19 @@ if __name__ == '__main__':
     with DAL() as dal:
         # דוגמאות ל-get_table
         print("\n=== get_table examples ===")
-        countries = dal.get_table("SELECT * FROM countries")
+        countries = dal.get_table("SELECT * FROM vacations where county_id = %s",(5,))
         # users = dal.get_table("SELECT * FROM users WHERE age > %s", (25,))
 
         for country in countries:
-            print(f"country name: {country["country_name"]}, country id: {
-                  country["country_id"]}")
+            print(f"country id: {country["country_id"]}, vacation_title: {
+                  country["vacation_title"]}")
         # for user in users:
         #     print(f"User name:{user['name']}, Age:{user["age"]}")
 
         # # דוגמאות ל-get_scalar
-        # print("\n=== get_scalar examples ===")
-        # count = dal.get_scalar("SELECT COUNT(*) as count FROM users")
-        # max_age = dal.get_scalar("SELECT MAX(age) as max_age FROM users")
-
+        #print("\n=== get_scalar examples ===")
+        #count = dal.get_scalar("SELECT * FROM vacations where vacation_id = %s",(1,))
+        #max_age = dal.get_scalar("SELECT MAX(age) as max_age FROM users")
         # # דוגמאות ל-get_one
         # print("\n=== get_one examples ===")
         # user = dal.get_one("SELECT * FROM users WHERE id = %s", (1,))
