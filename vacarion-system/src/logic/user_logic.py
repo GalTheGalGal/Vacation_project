@@ -1,7 +1,7 @@
-from utils import dal
+from src.utils.dal import DAL
 
 
-countries = dal.DAL.get_table("SELECT * FROM countries")
+countries = DAL.get_table("SELECT * FROM countries")
 
 for country in countries:
     print(f"country name: {country["country_name"]}, country id: {
